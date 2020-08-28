@@ -27,7 +27,7 @@ function prompts() {
             type: "list",
             message: "What kind of license should your project have?",
             name: "license",
-            choices: ["MIT", "GPL", "Apache", "Public Domain (unlicensed)"]
+            choices: ["MIT", "GPL", "Apache", "unlicensed"]
         },
         {
             type: "input",
