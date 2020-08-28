@@ -1,6 +1,7 @@
-const inquirer = require('inquirer');
+// const inquirer = require('inquirer');
 const fs = require("fs");
 const generateMarkdown = require("./utils/generateMarkdown.js")
+const prompts = require("./utils/prompts.js")
 
 // array of questions for user
 // const questions = [
@@ -51,31 +52,32 @@ const generateMarkdown = require("./utils/generateMarkdown.js")
 //         name: "contribute",
 //     }
 // ];
-inquirer.prompt(questions)
-.then(function(response){
-    console.log(response)
-    let docName = response.projectname + "-README.md";
-    let docTitle = "# " + response.projectname;
-    let descriptionTitle = "Description";
-    let description = response.description;
-    // let answers = JSON.stringify(response, null, 2);
-})
+
 
 // function to write README file
-function writeToFile(docName, data) {
-        fs.writeFile(docName, docTitle, (err) =>{
-            if (err) throw err;
-            console.log("Checkout your new README!")
-        })
-
+function writeToFile(fileName, data) {
+    // const fileName = prompts.projectname;
+    fs.writeFile(fileName + ".md", data, (err) =>{
+        if (err) throw err;
+        console.log("Checkout your new README!")
+    })
+    
 }
 // function writeToFile(projectname.md, data) {
-// }
-
-// function to initialize program
-function init() {
-
-}
+    // }
+    
+    // function to initialize program
+    async function init() {
+        let data = await prompts()
+        let readme = generateMarkdown(data)
+         writeToFile (data.projectname, readme);
+    }
+            // .then(function(data){
+            //     console.log(data)
+            //     let data = await prompts()
+            //     const readme = generateMarkdown(data)
+            //     writeToFile[`${data.projectname}-README.md`, readme];
+            // })
 
 // function call to initialize program
 init();
