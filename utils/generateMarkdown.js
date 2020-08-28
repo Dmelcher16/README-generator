@@ -10,6 +10,8 @@ function generateMarkdown({license, projectname, description, install, info, con
 
 
   ##TABLE OF CONTENTS\n
+
+
   [Installation](#installation)\n
   [Usage](#usage)\n
   [License](#license)\n
@@ -21,17 +23,22 @@ function generateMarkdown({license, projectname, description, install, info, con
   ## INSTALLATION
   Please run \`${install}\` in the command line to install dependencies.
 
+
   ## USAGE
   ${info}
+
 
   ## LICENSE
   The type of license this project uses is - ${license}
 
+
   ## CONTRIBUTIONS
   ${contribute}
 
+
   ## TESTING
   For testing please run \`${test}\` in the command line.
+  
 
   ## QUESTIONS
   All inquiries can be sent to ${email}, and be sure to check out more of my GitHub projects at [${username}](https://www.github.com/${username})
